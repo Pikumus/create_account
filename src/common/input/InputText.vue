@@ -33,16 +33,22 @@ const inputType = computed(() => {
   }
   return props.type || 'text'
 })
+
+const errorClasses = computed(() => ({
+  'border-red-500': meta.touched && errorMessage.value,
+}))
 </script>
 
 <template>
   <div v-if="type !== 'hidden'" class="flex flex-col w-full">
     <label class="text-gray-700 text-sm font-medium mb-1">{{ title }}</label>
+
     <select
       v-if="type === 'select'"
       v-model="value"
       @blur="handleBlur"
       class="border rounded-lg px-2 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+      :class="errorClasses"
     >
       <option v-for="option in props.options" :key="option.value" :value="option.value">
         {{ option.label }}
@@ -55,7 +61,8 @@ const inputType = computed(() => {
         :type="inputType"
         :placeholder="placeholder"
         @blur="handleBlur"
-        class="border rounded px-3 py-2 w-full text-sm pr-10"
+        class="border rounded px-3 py-2 w-full text-sm pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        :class="errorClasses"
       />
 
       <button
@@ -68,7 +75,5 @@ const inputType = computed(() => {
         <span v-else><EyeSlashed class="w-4" /></span>
       </button>
     </div>
-
-    <p v-if="meta.touched && errorMessage" class="text-red-500 text-xs mt-1">{{ errorMessage }}</p>
   </div>
 </template>

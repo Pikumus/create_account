@@ -82,7 +82,7 @@ watch(
   () => values.typeRecord,
   (newVal) => {
     if (newVal === 'LDAP') {
-      values.password = '' // очистить пароль
+      values.password = ''
     }
   },
 )

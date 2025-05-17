@@ -56,14 +56,6 @@ export const useAccountStore = defineStore('account', () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formsToSave))
   }
 
-  function getSavedForms(id: number) {
-    return forms[id] || null
-  }
-
-  function initForm(id: number) {
-    if (!forms[id]) addForm(id)
-  }
-
   function deleteForm(id: number) {
     delete forms[id]
     saveForms()
@@ -74,8 +66,6 @@ export const useAccountStore = defineStore('account', () => {
     addForm,
     updateForm,
     deleteForm,
-    getSavedForms,
-    initForm,
     loadForms
   }
 })
