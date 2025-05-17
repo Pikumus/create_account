@@ -109,8 +109,5 @@ const emit = defineEmits<{
         <TrashButton @click="emit('delete-form', formId)" />
       </div>
     </div>
-    <div class="mt-4">
-      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Submit</button>
-    </div>
   </form>
 </template>

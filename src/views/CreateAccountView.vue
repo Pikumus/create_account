@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import AccountTitle from '@/features/Account/presentation/AccountTitle.vue'
+import AccountTitle from '@/common/component/AccountTitle.vue'
 import PlusButton from '@/common/buttons/PlusButton.vue'
 import AccountForm from '@/features/Account/presentation/AccountForm.vue'
 import type { Options } from '@/features/Account/domain/models/OptionsInterface.ts'
